@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Our Products</h1>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Image</th>
+        <th scope="col">Product Name</th>
+        <th scope="col">Price</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody class="align-middle">
+      {% for product in all_products %}
+      <tr>
+        <td><img class="table-image"src="{{product.image_url}}"></td>
+        <td>{{product.product_name}}</td>
+        <td>${{"{:,.2f}".format(product.price)}}</td>
+        <td><a class="btn btn-info" href="product/{{product.id}}">Learn More</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+
+{% endblock %}
